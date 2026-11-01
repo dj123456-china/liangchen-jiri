@@ -1,0 +1,21 @@
+{
+  "name": "liangchen-jiri",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "node scripts/build-minitool.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "check:minitool": "node scripts/check-minitool.mjs",
+    "package:minitool": "npm run build && npm run check:minitool && python3 .codex/minitool-zip-builder/scripts/audit_artifact.py output/minitool && python3 scripts/package-minitool.py && python3 .codex/minitool-zip-builder/scripts/audit_artifact.py output/liangchen-minitool.zip"
+  },
+  "dependencies": {
+    "lunar-javascript": "^1.7.7"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0",
+    "esbuild": "0.25.12",
+    "postcss": "8.5.28"
+  }
+}

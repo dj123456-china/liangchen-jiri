@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN" class="no-flex-gap">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#111820" />
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+    <meta name="description" content="良辰吉日，为每件重要的事，择一个被时间祝福的日子。" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <title>良辰吉日 · 为重要时刻择一良辰</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="良辰吉日首页">
+          <span class="brand-mark" aria-hidden="true"><i></i><b></b></span>
+          <span class="brand-word"><strong>良辰</strong><em>JOURNEY TO AUSPICIOUS DAYS</em></span>
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <a class="active" href="#picker">择日</a>
+          <a href="#today">今日黄历</a>
+          <a href="#notes">择日小笺</a>
+        </nav>
+        <button class="ghost-button" id="headerSave" type="button"><span class="heart-icon">♡</span> 我的收藏</button>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> 2026 · 丙午年 · 秋分之后</p>
+            <h1 id="hero-title">为每一件重要的事，<br /><span>择一个被时间祝福的日子。</span></h1>
+            <p class="hero-intro">把选择交给历法，也把心意留给自己。输入一件事，我们从节气、冲煞与吉神中，为你筛出值得等待的日期。</p>
+            <div class="hero-actions">
+              <a class="primary-button" href="#picker">开始择日 <span>↗</span></a>
+              <a class="text-button" href="#today">先看看今日 <span>↓</span></a>
+            </div>
+            <div class="hero-meta">
+              <span><i class="meta-line"></i> 已服务 28,416 个重要时刻</span>
+              <span><i class="meta-line"></i> 依据传统历法与现代日程</span>
+            </div>
+          </div>
+
+          <div class="hero-calendar" aria-label="今日黄历概览">
+            <div class="calendar-glow"></div>
+            <div class="calendar-topline"><span>今日 · 本地历法</span><span class="tiny-code">LUNAR / 今日</span></div>
+            <div class="calendar-main">
+              <span class="calendar-month">今日</span>
+              <strong id="todayDay">--</strong>
+              <span class="calendar-week" id="todayWeek">正在读取本地日期</span>
+            </div>
+            <div class="calendar-divider"></div>
+            <div class="calendar-lunar"><span id="todayYearGanZhi">--</span><strong id="todayLunarText">正在读取</strong><span id="todayGanZhi">--</span></div>
+            <div class="calendar-advice">
+              <div><span>宜</span><strong>订盟 · 纳采 · 祭祀</strong></div>
+              <div><span class="avoid">忌</span><strong>动土 · 远行</strong></div>
+            </div>
+            <div class="calendar-footer"><span id="todayJiShen">今日吉神 · 正在读取</span><span class="red-seal" id="todayLuckSeal">吉</span></div>
+          </div>
+
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-scribble">天时 · 地利 · 人和</div>
+        </section>
+
+        <section class="picker-wrap" id="picker" aria-labelledby="picker-title">
+          <div class="section-kicker"><span>01</span><span class="kicker-line"></span><span>设定你的重要时刻</span></div>
+          <div class="picker-heading">
+            <div>
+              <h2 id="picker-title">你想为哪件事，<em>选一个日子？</em></h2>
+              <p>告诉我们大致计划，剩下的交给良辰。</p>
+            </div>
+            <span class="picker-tip"><span class="tip-icon">✦</span> 无需输入生辰，也能开始</span>
+          </div>
+
+          <form class="picker-card" id="pickerForm">
+            <div class="form-block form-event">
+              <label>我想要安排</label>
+              <div class="event-options" role="radiogroup" aria-label="事项类型">
+                <button class="event-option selected" type="button" data-event="婚嫁" aria-pressed="true"><span class="event-symbol">囍</span><span>婚嫁</span></button>
+                <button class="event-option" type="button" data-event="乔迁" aria-pressed="false"><span class="event-symbol">⌂</span><span>乔迁</span></button>
+                <button class="event-option" type="button" data-event="开业" aria-pressed="false"><span class="event-symbol">↗</span><span>开业</span></button>
+                <button class="event-option" type="button" data-event="出行" aria-pressed="false"><span class="event-symbol">⌁</span><span>出行</span></button>
+                <button class="event-option" type="button" data-event="订婚" aria-pressed="false"><span class="event-symbol">◇</span><span>订婚</span></button>
+                <button class="event-option" type="button" data-event="装修" aria-pressed="false"><span class="event-symbol">⌘</span><span>装修</span></button>
+                <button class="event-option" type="button" data-event="祭祀" aria-pressed="false"><span class="event-symbol">◎</span><span>祭祀</span></button>
+                <button class="event-option" type="button" data-event="求学" aria-pressed="false"><span class="event-symbol">册</span><span>求学</span></button>
+                <button class="event-option" type="button" data-event="签约" aria-pressed="false"><span class="event-symbol">§</span><span>签约</span></button>
+                <button class="event-option" type="button" data-event="购车" aria-pressed="false"><span class="event-symbol">▣</span><span>购车</span></button>
+                <button class="event-option" type="button" data-event="求医" aria-pressed="false"><span class="event-symbol">十</span><span>求医</span></button>
+              </div>
+            </div>
+            <fieldset class="family-zodiacs" id="familyZodiacs" aria-describedby="familyZodiacHelp">
+              <legend>全家生肖（可多选）</legend>
+              <p class="family-zodiac-hint" id="familyZodiacHelp">相同生肖只需选一次，会避开与任一已选生肖相冲的日子。</p>
+              <div class="zodiac-options">
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="鼠" /><span>鼠</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="牛" /><span>牛</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="虎" /><span>虎</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="兔" /><span>兔</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="龙" /><span>龙</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="蛇" /><span>蛇</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="马" /><span>马</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="羊" /><span>羊</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="猴" /><span>猴</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="鸡" /><span>鸡</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="狗" /><span>狗</span></label>
+                <label class="zodiac-option"><input type="checkbox" name="familyZodiac" value="猪" /><span>猪</span></label>
+              </div>
+              <div class="family-zodiac-meta">
+                <p id="familyZodiacSummary" role="status" aria-live="polite">不限定生肖</p>
+                <button class="clear-zodiacs" id="clearZodiacs" type="button">清空选择</button>
+              </div>
+            </fieldset>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="startDate">从哪天开始看</label>
+                <div class="input-wrap"><span class="input-icon">◷</span><input id="startDate" name="startDate" type="date" value="2026-10-04" /></div>
+              </div>
+              <div class="form-field">
+                <label for="endDate">看到哪天为止</label>
+                <div class="input-wrap"><span class="input-icon">◷</span><input id="endDate" name="endDate" type="date" value="2026-10-24" /></div>
+              </div>
+              <div class="form-field">
+                <label for="city">所在城市</label>
+                <div class="input-wrap"><span class="input-icon">⌖</span><select id="city" name="city" aria-label="所在城市"></select></div>
+              </div>
+              <button class="submit-button" type="submit">查看我的吉日 <span>→</span></button>
+            </div>
+            <div class="form-footnote"><span class="lock-icon">◌</span> 结果仅供日程参考，重要决定请结合实际情况</div>
+          </form>
+        </section>
+
+        <section class="today-strip" id="today" aria-label="今日简报">
+          <div class="today-date"><span class="date-label">TODAY'S ALMANAC</span><strong>10.02</strong><span>星期五</span></div>
+          <div class="today-item"><span class="today-item-label">节气</span><strong>秋分 · 第 12 天</strong><small>昼夜平分，宜收心</small></div>
+          <div class="today-item"><span class="today-item-label">吉时</span><strong>07:00–09:00</strong><small>辰时 · 天德合</small></div>
+          <div class="today-item"><span class="today-item-label">方位</span><strong>喜神 · 西北</strong><small>财神 · 正东</small></div>
+          <div class="today-motto">“慢一点，<br />好日子值得等。”</div>
+        </section>
+
+        <section class="results-section" id="results" aria-labelledby="results-title">
+          <div class="section-kicker"><span>02</span><span class="kicker-line"></span><span>让日期回应你的心意</span></div>
+          <div class="results-heading">
+            <div><h2 id="results-title">适合<span id="resultEvent">婚嫁</span>的日子</h2><p id="resultMeta">在 10.04 – 10.24 之间，为你找到 3 个值得考虑的选择</p></div>
+            <button class="outline-button" id="changeSearch" type="button">调整条件 <span>↗</span></button>
+          </div>
+          <div class="month-rail" aria-label="十月日期预览">
+            <div class="rail-label">OCT<br /><span>2026</span></div>
+            <div class="rail-days" id="railDays"></div>
+          </div>
+          <div class="result-grid" id="resultGrid"></div>
+          <div class="result-note"><span class="note-line"></span><span>吉日是参考，也是提醒。真正让一天变得特别的，是你要去做的事。</span><span class="note-line"></span></div>
+        </section>
+
+        <section class="notes-section" id="notes" aria-labelledby="notes-title">
+          <div class="section-kicker"><span>03</span><span class="kicker-line"></span><span>把古老的智慧，放进今天</span></div>
+          <div class="notes-heading"><h2 id="notes-title">择日小笺</h2><p>几个简单的概念，帮你读懂每一个“宜”与“忌”。</p></div>
+          <div class="notes-grid">
+            <article class="note-card note-card-large"><div class="note-number">01</div><div><h3>先看节气，再看吉日</h3><p>节气是时间的骨架，决定当下的气候与节奏。重要的事，顺着时令走，往往比追求一个“最吉”的数字更从容。</p><a href="#" class="note-link">了解节气 <span>→</span></a></div><div class="note-decoration">廿<br />四<br />节<br />气</div></article>
+            <article class="note-card"><div class="note-number">02</div><h3>“宜”是建议，不是命令</h3><p>黄历里的宜忌，是古人对生活经验的归纳。把它当作一个温柔的提醒，再结合你的现实安排。</p><a href="#" class="note-link">读懂宜忌 <span>→</span></a></article>
+            <article class="note-card note-card-dark"><div class="note-number">03</div><h3>给重要的事，留一点余地</h3><p>如果条件允许，预留一到两周的弹性。好的安排，不只选中了日子，也照顾到了人。</p><a href="#" class="note-link">查看建议 <span>→</span></a></article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer"><div class="footer-brand"><span class="brand-mark small"><i></i><b></b></span><strong>良辰</strong></div><p>为每一件重要的事，择一个被时间祝福的日子。</p><div class="footer-links"><a href="#picker">重新择日</a><a href="#notes">关于历法</a><span>© 2026 良辰吉日</span></div></footer>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./compat.js" defer></script>
+    <script src="vendor/lunar.js" defer></script>
+    <script src="cities.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
